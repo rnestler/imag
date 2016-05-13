@@ -37,8 +37,12 @@ impl RhaiFilter {
 impl Filter for RhaiFilter {
 
     fn filter(&self, e: &Entry) -> bool {
+        use rhai::Scope;
+
+        let e = RhaiEntry::from(e);
+        let mut scope: Scope = vec![(String::from("e"), Box::new(e))];
         self.engine.borrow_mut()
-            .eval::<bool>(&self.source[..])
+            .eval_with_scope::<bool>(&mut scope, &self.source[..])
             .map_err(|e| trace_error(&e))
             .unwrap_or(false)
     }
