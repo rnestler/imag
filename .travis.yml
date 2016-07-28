@@ -41,6 +41,8 @@ addons:
     - libcurl4-openssl-dev
     - libdw-dev
     - libelf-dev
+    - pkgconfig
+    - libdbus-1-dev
     - make
 after_success:
 - |
