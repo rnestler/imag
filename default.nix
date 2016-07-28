@@ -5,6 +5,11 @@ let
     rustc
     cargo
   ];
+
+  deps = with pkgs; [
+    dbus
+    pkgconfig
+  ];
 in
 
 pkgs.stdenv.mkDerivation rec {
@@ -12,7 +17,7 @@ pkgs.stdenv.mkDerivation rec {
     src = ./.;
     version = "0.0.0";
 
-    buildInputs = [ env ];
+    buildInputs = [ env deps ];
 
 }
 
