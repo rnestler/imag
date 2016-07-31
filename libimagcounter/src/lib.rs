@@ -13,6 +13,8 @@
 )]
 
 extern crate toml;
+extern crate regex;
+extern crate clap;
 #[macro_use] extern crate log;
 #[macro_use] extern crate semver;
 
