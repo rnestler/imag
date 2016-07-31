@@ -179,6 +179,14 @@ impl<'a> Counter<'a> {
 
 }
 
+impl<'a> Into<FileLockEntry<'a>> for Counter<'a> {
+
+    fn into(self) -> FileLockEntry<'a> {
+        self.fle
+    }
+
+}
+
 trait FromStoreId {
     fn from_storeid(&Store, StoreId) -> Result<Counter>;
 }
