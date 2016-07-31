@@ -3,7 +3,10 @@ generate_error_module!(
         StoreReadError          => "Store read error",
         StoreWriteError         => "Store write error",
         HeaderTypeError         => "Header type error",
-        HeaderFieldMissingError => "Header field missing error"
+        HeaderFieldMissingError => "Header field missing error",
+
+        CliError                => "Commandline interface error",
+        CliValueTransformError  => "Commandline value type transformation failed"
     );
 );
 
