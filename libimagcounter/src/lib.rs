@@ -18,8 +18,9 @@ extern crate clap;
 #[macro_use] extern crate log;
 #[macro_use] extern crate semver;
 
-#[macro_use] extern crate libimagstore;
+#[macro_use] extern crate libimagentryfilter;
 #[macro_use] extern crate libimagerror;
+#[macro_use] extern crate libimagstore;
 
 module_entry_path_mod!("counter", "0.2.0");
 
