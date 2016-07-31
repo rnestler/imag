@@ -24,6 +24,7 @@ extern crate clap;
 
 module_entry_path_mod!("counter", "0.2.0");
 
+pub mod cli;
 pub mod counter;
 pub mod error;
 pub mod result;
