@@ -9,4 +9,5 @@ generate_error_module!(
 
 pub use self::error::CounterError;
 pub use self::error::CounterErrorKind;
+pub use self::error::MapErrInto;
 
