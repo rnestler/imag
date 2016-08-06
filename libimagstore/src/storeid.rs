@@ -69,14 +69,6 @@ impl From<PathBuf> for StoreId {
 
 }
 
-impl From<String> for StoreId {
-
-    fn from(string: String) -> StoreId {
-        StoreId(string.into())
-    }
-
-}
-
 impl AsRef<Path> for StoreId {
 
     fn as_ref(&self) -> &Path {
