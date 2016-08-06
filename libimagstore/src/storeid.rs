@@ -61,14 +61,6 @@ impl Deref for StoreId {
 
 }
 
-impl From<PathBuf> for StoreId {
-
-    fn from(pb: PathBuf) -> StoreId {
-        StoreId(pb)
-    }
-
-}
-
 impl AsRef<Path> for StoreId {
 
     fn as_ref(&self) -> &Path {
