@@ -61,7 +61,7 @@ struct StoreEntry {
 }
 
 pub enum StoreObject {
-    Id(StoreId),
+    Id(PathBuf),
     Collection(PathBuf),
 }
 
@@ -96,7 +96,7 @@ impl Iterator for Walk {
                 Ok(next) => if next.file_type().is_dir() {
                                 return Some(StoreObject::Collection(next.path().to_path_buf()))
                             } else if next.file_type().is_file() {
-                                return Some(StoreObject::Id(next.path().to_path_buf().into()))
+                                return Some(StoreObject::Id(next.path().to_path_buf()))
                             },
                 Err(e) => {
                     warn!("Error in Walker");
@@ -1500,6 +1500,7 @@ impl Entry {
 mod glob_store_iter {
     use std::fmt::{Debug, Formatter};
     use std::fmt::Error as FmtError;
+    use std::path::PathBuf;
     use glob::Paths;
     use storeid::StoreId;
     use storeid::StoreIdIterator;
@@ -1535,9 +1536,9 @@ mod glob_store_iter {
     }
 
     impl Iterator for GlobStoreIdIterator {
-        type Item = StoreId;
+        type Item = PathBuf;
 
-        fn next(&mut self) -> Option<StoreId> {
+        fn next(&mut self) -> Option<PathBuf> {
             self.paths.next().and_then(|o| {
                 match o {
                     Ok(o) => Some(o),
@@ -1546,7 +1547,7 @@ mod glob_store_iter {
                         None
                     },
                 }
-            }).map(|p| StoreId(p))
+            })
         }
 
     }
