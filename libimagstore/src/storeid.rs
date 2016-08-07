@@ -167,7 +167,7 @@ macro_rules! module_entry_path_mod {
 }
 
 pub struct StoreIdIterator {
-    iter: Box<Iterator<Item = StoreId>>,
+    iter: Box<Iterator<Item = PathBuf>>,
 }
 
 impl Debug for StoreIdIterator {
@@ -180,7 +180,7 @@ impl Debug for StoreIdIterator {
 
 impl StoreIdIterator {
 
-    pub fn new(iter: Box<Iterator<Item = StoreId>>) -> StoreIdIterator {
+    pub fn new(iter: Box<Iterator<Item = PathBuf>>) -> StoreIdIterator {
         StoreIdIterator {
             iter: iter,
         }
@@ -189,9 +189,9 @@ impl StoreIdIterator {
 }
 
 impl Iterator for StoreIdIterator {
-    type Item = StoreId;
+    type Item = PathBuf;
 
-    fn next(&mut self) -> Option<StoreId> {
+    fn next(&mut self) -> Option<PathBuf> {
         self.iter.next()
     }
 
