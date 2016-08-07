@@ -27,7 +27,7 @@ impl StoreId {
             let mut new_id = store.path().clone();
             new_id.push(self);
             debug!("Created: '{:?}'", new_id);
-            StoreId::from(new_id)
+            StoreId(new_id)
         }
     }
 
