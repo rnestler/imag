@@ -1546,7 +1546,7 @@ mod glob_store_iter {
                         None
                     },
                 }
-            }).map(|p| StoreId::from(p))
+            }).map(|p| StoreId(p))
         }
 
     }
